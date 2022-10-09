@@ -11,11 +11,11 @@
   <meta charset="utf-8">
 
   
-  <title>All Posts - jiliapp</title>
+  <title>利用frp自建内网穿透服务</title>
   
-  <link rel="canonical" href="http://jiliapp.github.io/archives/2022/10/">
+  <link rel="canonical" href="http://jiliapp.github.io/2020/10/08/frp/">
   
-  <meta name="description" content="科技与狠活儿激励您">
+  <meta name="description" content="1234做微信支付开发的时候，需要使用到公网回调，希望能够直接访问本地局域网服务。网上的免费服务不好用，就自己搭建一个了。参考阿里云文档： https://developer.aliyun.com/article/853534?spm=ding_open_doc.document.0.0.14bc7">
   
   
   <meta name="keywords" content="激励">
@@ -23,28 +23,24 @@
   <meta name="author" content="jiliapp">
   
   
-  <meta property="og:image" content="http://jiliapp.github.io/images/thumbnail.jpg">
-  
   
   <meta property="og:site_name" content="激励师" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="All Posts - jiliapp" />
+  <meta property="og:title" content="利用frp自建内网穿透服务" />
   
-  <meta property="og:description" content="科技与狠活儿激励您">
+  <meta property="og:description" content="1234做微信支付开发的时候，需要使用到公网回调，希望能够直接访问本地局域网服务。网上的免费服务不好用，就自己搭建一个了。参考阿里云文档： https://developer.aliyun.com/article/853534?spm=ding_open_doc.document.0.0.14bc7">
   
-  <meta property="og:url" content="http://jiliapp.github.io/archives/2022/10/" />
+  <meta property="og:url" content="http://jiliapp.github.io/2020/10/08/frp/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="All Posts - jiliapp">
+  <meta name="twitter:title" content="利用frp自建内网穿透服务">
   
-  <meta name="twitter:description" content="科技与狠活儿激励您">
-  
-  
-  
-  <meta name="twitter:image" content="http://jiliapp.github.io/images/thumbnail.jpg">
+  <meta name="twitter:description" content="1234做微信支付开发的时候，需要使用到公网回调，希望能够直接访问本地局域网服务。网上的免费服务不好用，就自己搭建一个了。参考阿里云文档： https://developer.aliyun.com/article/853534?spm=ding_open_doc.document.0.0.14bc7">
   
   
-  <meta name="twitter:url" content="http://jiliapp.github.io/archives/2022/10/" />
+  
+  
+  <meta name="twitter:url" content="http://jiliapp.github.io/2020/10/08/frp/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -201,80 +197,55 @@
 </div>
 
         <div class="trans">
-          
-<h2>All Posts</h2>
+            <h2>利用frp自建内网穿透服务</h2>
 
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">做微信支付开发的时候，需要使用到公网回调，希望能够直接访问本地局域网服务。</span><br><span class="line">网上的免费服务不好用，就自己搭建一个了。</span><br><span class="line">参考阿里云文档： https://developer.aliyun.com/article/853534?spm=ding_open_doc.document.0.0.14bc722fy9rQQW</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol>
+<li>本地下载frp客户端</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">下载地址 https://github.com/fatedier/frp/releases/tag/v0.44.0</span><br><span class="line">我这里下载的frp_0.44.0_windows_amd64</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-    <article>
-      <div class="row">
+<p>服务器端下载frp_0.44.0_linux_amd64</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget  https://github.com/fatedier/frp/releases/download/v0.44.0/frp_0.44.0_linux_amd64.tar.gz</span><br><span class="line">tar -xvf frp_0.44.0_linux_amd64.tar.gz</span><br><span class="line">cd frp_0.44.0_linux_amd64</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-        <div class="three columns left lit">
-          <p class="bottom">Oct 9, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/09/consul-1-start/" class="">
-            
-              consul服务启动脚本
-            
-          </a>
-        </div>
-      </div>
-    </article>
+<ol start="2">
+<li>编辑本地frpc.ini</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 82.156.25.146</span><br><span class="line">server_port = 7000</span><br><span class="line">token = jilitoken</span><br><span class="line">vhost_http_port = 7071</span><br><span class="line"></span><br><span class="line">[web] </span><br><span class="line">type = http</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 80</span><br><span class="line">custom_domains = frp.jiliapp.cn</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>82.156.25.1 为公网服务器地址</li>
+</ul>
+<ol start="3">
+<li>编辑本地frps.ini</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">vhost_http_port = 7071</span><br><span class="line">token = jilitoken</span><br><span class="line"></span><br><span class="line">[web]</span><br><span class="line">type = http</span><br><span class="line">custom_domains = frp.jiliapp.cn</span><br></pre></td></tr></table></figure>
+<ul>
+<li>custom_domains 域名必须一致。</li>
+</ul>
+<ol start="4">
+<li>启动frps服务端</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4.1 复制以上第三节的frps.ini覆盖 到服务器端的frps.ini</span><br><span class="line">4.2 启动服务端 ./frps -c ./frps.ini </span><br><span class="line">4.3 确认服务正常后，守护进程启动服务</span><br><span class="line">   nohup ./frps -c ./frps.ini &gt;&gt; frps.log    2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如下图所示：<br><img src="/images/frp/started_frps.PNG" alt="启动frps服务端成功"></p>
+<ol start="5">
+<li>nginx转发配置 frp.conf</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line"></span><br><span class="line">  listen 80;</span><br><span class="line"></span><br><span class="line">  server_name frp.jiliapp.cn;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line"></span><br><span class="line">   proxy_pass http://127.0.0.1:7071;</span><br><span class="line"></span><br><span class="line">   proxy_redirect http://$host/ http://$http_host/;</span><br><span class="line"></span><br><span class="line">   proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line"></span><br><span class="line">   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line"></span><br><span class="line">   proxy_set_header Host $host;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-    <article>
-      <div class="row">
+<ul>
+<li>注意： frp.jiliapp.cn的域名解析要解析到公网地址82.156.25.146</li>
+</ul>
+<ol start="6">
+<li>启动本地客户端</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\frpc.exe -c .\frpc.ini</span><br></pre></td></tr></table></figure>
+<p><img src="/images/frp/started_frp_local.PNG" alt="启动本地客户端成功"></p>
+<ol start="7">
+<li>访问frp.jiliapp.cn域名，会成功返回本地80端口上的index.html</li>
+</ol>
 
-        <div class="three columns left lit">
-          <p class="bottom">Oct 9, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/09/consul-2-data/" class="">
-            
-              consul服务数据配置
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 9, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/09/easycode-micronaut/" class="">
-            
-              micronaut微服务中的easycode模板代码
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 9, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/09/hello-world/" class="">
-            
-              Hello World
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-<div class="pagination-bar">
-  <ul class="pagination">
-    
-    
-  </ul>
-</div>
+  <p><a class="classtest-link" href="/tags/frp/" rel="tag">frp</a> — Oct 8, 2020</p>
+  
 
 
         </div>
