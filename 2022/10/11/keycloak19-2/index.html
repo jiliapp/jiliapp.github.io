@@ -11,11 +11,11 @@
   <meta charset="utf-8">
 
   
-  <title>All Posts - jiliapp</title>
+  <title>keycloak19使用2-Keycloak19添加用户自定义属性到token</title>
   
-  <link rel="canonical" href="http://jiliapp.github.io/archives/2020/">
+  <link rel="canonical" href="http://jiliapp.github.io/2022/10/11/keycloak19-2/">
   
-  <meta name="description" content="科技与狠活儿激励您">
+  <meta name="description" content="Keycloak19添加用户自定义属性到token 关联问题： https://github.com/keycloak/keycloak-ui/issues/2511 先看看keycloak18关联用户属性到token的设置地址: https://www.baeldung.com/keycloak-">
   
   
   <meta name="keywords" content="激励">
@@ -23,28 +23,24 @@
   <meta name="author" content="jiliapp">
   
   
-  <meta property="og:image" content="http://jiliapp.github.io/images/thumbnail.jpg">
-  
   
   <meta property="og:site_name" content="激励师" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="All Posts - jiliapp" />
+  <meta property="og:title" content="keycloak19使用2-Keycloak19添加用户自定义属性到token" />
   
-  <meta property="og:description" content="科技与狠活儿激励您">
+  <meta property="og:description" content="Keycloak19添加用户自定义属性到token 关联问题： https://github.com/keycloak/keycloak-ui/issues/2511 先看看keycloak18关联用户属性到token的设置地址: https://www.baeldung.com/keycloak-">
   
-  <meta property="og:url" content="http://jiliapp.github.io/archives/2020/" />
+  <meta property="og:url" content="http://jiliapp.github.io/2022/10/11/keycloak19-2/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="All Posts - jiliapp">
+  <meta name="twitter:title" content="keycloak19使用2-Keycloak19添加用户自定义属性到token">
   
-  <meta name="twitter:description" content="科技与狠活儿激励您">
-  
-  
-  
-  <meta name="twitter:image" content="http://jiliapp.github.io/images/thumbnail.jpg">
+  <meta name="twitter:description" content="Keycloak19添加用户自定义属性到token 关联问题： https://github.com/keycloak/keycloak-ui/issues/2511 先看看keycloak18关联用户属性到token的设置地址: https://www.baeldung.com/keycloak-">
   
   
-  <meta name="twitter:url" content="http://jiliapp.github.io/archives/2020/" />
+  
+  
+  <meta name="twitter:url" content="http://jiliapp.github.io/2022/10/11/keycloak19-2/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -209,80 +205,33 @@
 </div>
 
         <div class="trans">
-          
-<h2>All Posts</h2>
+            <h2>keycloak19使用2-Keycloak19添加用户自定义属性到token</h2>
 
+  <p>Keycloak19添加用户自定义属性到token</p>
+<p>关联问题： <a target="_blank" rel="noopener" href="https://github.com/keycloak/keycloak-ui/issues/2511">https://github.com/keycloak/keycloak-ui/issues/2511</a></p>
+<p>先看看keycloak18关联用户属性到token的设置<br>地址: <a target="_blank" rel="noopener" href="https://www.baeldung.com/keycloak-custom-user-attributes">https://www.baeldung.com/keycloak-custom-user-attributes</a></p>
+<p> <img src="/images/keyclock19-2/k1.png" alt="添加userId自定义属性映射"></p>
+<ol>
+<li>   用户添加userId属性(后续可以使用管理用户api添加)</li>
+</ol>
+<p> <img src="/images/keyclock19-2/k2.png" alt="用户添加userId属性"></p>
+<ol start="2">
+<li>   Client scopes 添加userId scopes</li>
+</ol>
+<p> <img src="/images/keyclock19-2/k3.png" alt="添加userId scopes"></p>
+<ol start="3">
+<li>设置Client scope details的mapper映射对象<br>clientScope添加字段userId<br><img src="/images/keyclock19-2/k4.png" alt="clientScope添加字段userId"></li>
+</ol>
+<p>clientScope的mapper映射对象1<br>  <img src="/images/keyclock19-2/k5.png" alt="clientScope的mapper映射对象"></p>
+<p>clientScope的mapper映射对象2<br>  <img src="/images/keyclock19-2/k6.png" alt="clientScope的mapper映射对象"></p>
+<ol start="4">
+<li>请求模拟<br><img src="/images/keyclock19-2/k7.png" alt="请求模拟"></li>
+<li>   返回结果token解析</li>
+</ol>
+<p>  <img src="/images/keyclock19-2/k8.png" alt="请求返回结果token解析模拟"></p>
 
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Feb 2, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/02/02/frp/" class="">
-            
-              利用frp自建内网穿透服务
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Feb 2, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/02/02/easycode-micronaut/" class="">
-            
-              micronaut微服务中的easycode模板代码
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Feb 2, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/02/02/consul-1-start/" class="">
-            
-              consul服务启动脚本
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Feb 2, 2020</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2020/02/02/consul-2-data/" class="">
-            
-              consul服务数据配置
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-<div class="pagination-bar">
-  <ul class="pagination">
-    
-    
-  </ul>
-</div>
+  <p><a class="classtest-link" href="/tags/keycloak/" rel="tag">keycloak</a> — Oct 11, 2022</p>
+  
 
 
         </div>
