@@ -15,7 +15,7 @@
   
   <link rel="canonical" href="http://jiliapp.github.io/2022/10/11/keycloak18-3/">
   
-  <meta name="description" content="Linux平台部署keycloak     下载安装 1 访问: https://www.keycloak.org/downloads   2 ftp或者scp上传服务器 3 解压目录 tar –xvf keycloak-18.0.0.tar.gz 4 配置conf/keycloak.conf   ">
+  <meta name="description" content="Linux平台部署keycloak     下载安装 1 访问: https://www.keycloak.org/downloads   2 ftp或者scp上传服务器 3 解压目录 tar –xvf keycloak-18.0.0.tar.gz 4 改变所有者chown -R deployer ">
   
   
   <meta name="keywords" content="激励">
@@ -28,14 +28,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="keycloak18使用3 Linux平台部署keycloak" />
   
-  <meta property="og:description" content="Linux平台部署keycloak     下载安装 1 访问: https://www.keycloak.org/downloads   2 ftp或者scp上传服务器 3 解压目录 tar –xvf keycloak-18.0.0.tar.gz 4 配置conf/keycloak.conf   ">
+  <meta property="og:description" content="Linux平台部署keycloak     下载安装 1 访问: https://www.keycloak.org/downloads   2 ftp或者scp上传服务器 3 解压目录 tar –xvf keycloak-18.0.0.tar.gz 4 改变所有者chown -R deployer ">
   
   <meta property="og:url" content="http://jiliapp.github.io/2022/10/11/keycloak18-3/" />
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="keycloak18使用3 Linux平台部署keycloak">
   
-  <meta name="twitter:description" content="Linux平台部署keycloak     下载安装 1 访问: https://www.keycloak.org/downloads   2 ftp或者scp上传服务器 3 解压目录 tar –xvf keycloak-18.0.0.tar.gz 4 配置conf/keycloak.conf   ">
+  <meta name="twitter:description" content="Linux平台部署keycloak     下载安装 1 访问: https://www.keycloak.org/downloads   2 ftp或者scp上传服务器 3 解压目录 tar –xvf keycloak-18.0.0.tar.gz 4 改变所有者chown -R deployer ">
   
   
   
@@ -213,10 +213,11 @@
 <li>1 访问: <a target="_blank" rel="noopener" href="https://www.keycloak.org/downloads">https://www.keycloak.org/downloads</a><br>  <img src="/images/keycloak18-3/k1.png" alt="变更系统为中文界面"></li>
 <li>2 ftp或者scp上传服务器</li>
 <li>3 解压目录 tar –xvf keycloak-18.0.0.tar.gz</li>
-<li>4 配置conf/keycloak.conf<br>  <img src="/images/keycloak18-3/k2.png" alt="配置conf"></li>
+<li>4 改变所有者<br>chown -R deployer keycloak-18.0.0<br>chmod -R 755 keycloak-18.0.0</li>
+<li>5 配置conf/keycloak.conf<br>  <img src="/images/keycloak18-3/k2.png" alt="配置conf"></li>
 </ol>
 <p>保存好,build更新配置<br>sh ./bin/kc.sh build </p>
-<p>注意<br>1-6步骤都需要配置<br>hostname为外网访问域名<br>  proxy=edge为透明代理模式<br>  db-url需要先建立好数据库,启动会自动初始化表结构</p>
+<p>注意<br>1-6步骤都需要配置<br>  hostname为外网访问域名<br>  proxy=edge为透明代理模式<br>  db-url需要先建立好数据库,启动会自动初始化表结构</p>
 <ol start="2">
 <li>   Linux平台启动服务<br>第一次启动需要设置环境变量</li>
 </ol>
