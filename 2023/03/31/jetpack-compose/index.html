@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>jetpack compose basic</title>
+  
+  <link rel="canonical" href="http://jiliapp.github.io/2023/03/31/jetpack-compose/">
+  
+  <meta name="description" content="jetpack compose基础https://gist.github.com/stevdza-san  基础组件12345678910111213SurfaceColumnRowBoxTextCardIconButtontextfiledSurfaceIconImagelazyColumnLaz">
+  
+  
+  <meta name="keywords" content="激励">
+  
+  <meta name="author" content="jiliapp">
+  
+  
+  
+  <meta property="og:site_name" content="激励师" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="jetpack compose basic" />
+  
+  <meta property="og:description" content="jetpack compose基础https://gist.github.com/stevdza-san  基础组件12345678910111213SurfaceColumnRowBoxTextCardIconButtontextfiledSurfaceIconImagelazyColumnLaz">
+  
+  <meta property="og:url" content="http://jiliapp.github.io/2023/03/31/jetpack-compose/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="jetpack compose basic">
+  
+  <meta name="twitter:description" content="jetpack compose基础https://gist.github.com/stevdza-san  基础组件12345678910111213SurfaceColumnRowBoxTextCardIconButtontextfiledSurfaceIconImagelazyColumnLaz">
+  
+  
+  
+  
+  <meta name="twitter:url" content="http://jiliapp.github.io/2023/03/31/jetpack-compose/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      激励师
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/product" class="ml">Product</a>
+          
+        
+          
+          <a href="/archives" class="ml">Archives</a>
+          
+        
+          
+          <a href="/tags" class="ml">Tags</a>
+          
+        
+          
+          <a href="/about" class="ml">About</a>
+          
+        
+        
+          
+            <a href="mailto:jiliapp@xgggh.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>jetpack compose basic</h2>
+
+  <h6 id="jetpack-compose基础"><a href="#jetpack-compose基础" class="headerlink" title="jetpack compose基础"></a>jetpack compose基础</h6><p><a target="_blank" rel="noopener" href="https://gist.github.com/stevdza-san">https://gist.github.com/stevdza-san</a></p>
+<ol>
+<li>基础组件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Surface</span><br><span class="line">Column</span><br><span class="line">Row</span><br><span class="line">Box</span><br><span class="line">Text</span><br><span class="line">Card</span><br><span class="line">IconButton</span><br><span class="line">textfiled</span><br><span class="line">Surface</span><br><span class="line">Icon</span><br><span class="line">Image</span><br><span class="line">lazyColumn</span><br><span class="line">LazyVerticalGrid </span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="2">
+<li>column row</li>
+</ol>
+<p>ColumnScope.weightItem</p>
+<p>.padding(16.dp)             margin<br>.background(Color.bulue)<br>.padding(16.dp)             padding</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Column(</span><br><span class="line">    horzontalAlignment=center</span><br><span class="line">    verticalArrangement=bottom,top,center,spaceBeteween,spaceEvbenly,spaceAround</span><br><span class="line">    modifier=modifier.weight(1f)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">限制作用域weight才生效</span><br><span class="line">@Composable</span><br><span class="line">fun ColumnScope.weightItem()&#123;</span><br><span class="line">    Surface()&#123;</span><br><span class="line">        modifier=Modifier.weight(1f)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li><p>box<br>contentAligent verticalScroll</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">fun BoxItem()&#123;</span><br><span class="line">    Box(</span><br><span class="line">        modifier=Modifier.background(Color.bule),</span><br><span class="line">        contentAligent=Alignment.TopCenter</span><br><span class="line">    )&#123;</span><br><span class="line">        Box(</span><br><span class="line">        modifier=Modifier.background(Color.bule).height(10.dp).width(10.dp).verticalScroll(rememberState()),</span><br><span class="line">        )&#123;</span><br><span class="line">            Text(text=&quot;Ha a android toy &quot;,fontSize=48.sp)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>Text<br>textAlign=TextAlign.Center<br>buildAnnotatedString(){<br> append(“A”)<br> append(“B”)<br> append(“C”)<br>}<br>withStyle：SpanStyle ParagraphStyle</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">基础构建</span><br><span class="line">Text(tex=&quot;i love android !&quot;,</span><br><span class="line">    fontSize = MaterialTheme.typography.h6.fontSize</span><br><span class="line">    fontStyle=FontStyle.Italic</span><br><span class="line">    fontWeight=FontWeight.Bold</span><br><span class="line">    textAligin=TextAligin.Center</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">构建spanString SpanStyle ParagraphStyle</span><br><span class="line">Text()&#123;</span><br><span class="line">       buildAnnotatedString()&#123;</span><br><span class="line">        withStyle(</span><br><span class="line">            style=SpanStyle(</span><br><span class="line">                color=MaterialTheme.colors.primary,</span><br><span class="line">                fontSize=23.sp,</span><br><span class="line">                fontWeight=FontWeight.Blod</span><br><span class="line">            )</span><br><span class="line">        )&#123;</span><br><span class="line">            append(&quot;A&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">            append(&quot;B&quot;)</span><br><span class="line">            append(&quot;C&quot;)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">溢出构建</span><br><span class="line">Text(text=&quot;hello,world&quot;.repeat(20),Maxlines=2,overflow=TextOverflow.Ellipsis)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="5">
+<li>Text高级<br>selection</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Column()&#123;</span><br><span class="line">    SelectionContainer&#123;</span><br><span class="line">        Column&#123;</span><br><span class="line">            Text(text=&quot;hello,world&quot;)</span><br><span class="line">            DisableSelecttion&#123;</span><br><span class="line">                Text(text=&quot;hello,world&quot;)</span><br><span class="line">            &#125;</span><br><span class="line">            Text(text=&quot;hello,world&quot;)</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> Superscript/Subscript Text<br> 上标和下标对齐</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">@Composable</span><br><span class="line">fun SuperScriptText(</span><br><span class="line">    normalText: String,</span><br><span class="line">    normalTextFontSize: TextUnit = MaterialTheme.typography.subtitle1.fontSize,</span><br><span class="line">    superText: String,</span><br><span class="line">    superTextFontSize: TextUnit = MaterialTheme.typography.overline.fontSize,</span><br><span class="line">    superTextFontWeight: FontWeight = FontWeight.Normal</span><br><span class="line">) &#123;</span><br><span class="line">    Text(text = buildAnnotatedString &#123;</span><br><span class="line">        withStyle(</span><br><span class="line">            style = SpanStyle(</span><br><span class="line">                fontSize = normalTextFontSize</span><br><span class="line">            )</span><br><span class="line">        ) &#123;</span><br><span class="line">            append(normalText)</span><br><span class="line">        &#125;</span><br><span class="line">        withStyle(</span><br><span class="line">            style = SpanStyle(</span><br><span class="line">                fontSize = superTextFontSize,</span><br><span class="line">                fontWeight = superTextFontWeight,</span><br><span class="line">                baselineShift = BaselineShift.Superscript</span><br><span class="line">            )</span><br><span class="line">        ) &#123;</span><br><span class="line">            append(superText)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<ol start="6">
+<li>Card<br>exapandable 可收缩card</li>
+</ol>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">@ExperimentalMaterialApi</span><br><span class="line">@Composable</span><br><span class="line">fun ExpandableCard(</span><br><span class="line">    title: String,</span><br><span class="line">    titleFontSize: TextUnit = MaterialTheme.typography.h6.fontSize,</span><br><span class="line">    titleFontWeight: FontWeight = FontWeight.Bold,</span><br><span class="line">    description: String,</span><br><span class="line">    descriptionFontSize: TextUnit = MaterialTheme.typography.subtitle1.fontSize,</span><br><span class="line">    descriptionFontWeight: FontWeight = FontWeight.Normal,</span><br><span class="line">    descriptionMaxLines: Int = 4,</span><br><span class="line">    shape: Shape = Shapes.medium,</span><br><span class="line">    padding: Dp = 12.dp</span><br><span class="line">) &#123;</span><br><span class="line">    var expandedState by remember &#123; mutableStateOf(false) &#125;</span><br><span class="line">    val rotationState by animateFloatAsState(</span><br><span class="line">        targetValue = if (expandedState) 180f else 0f</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    Card(</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .fillMaxWidth()</span><br><span class="line">            .animateContentSize(</span><br><span class="line">                animationSpec = tween(</span><br><span class="line">                    durationMillis = 300,</span><br><span class="line">                    easing = LinearOutSlowInEasing</span><br><span class="line">                )</span><br><span class="line">            ),</span><br><span class="line">        shape = shape,</span><br><span class="line">        onClick = &#123;</span><br><span class="line">            expandedState = !expandedState</span><br><span class="line">        &#125;</span><br><span class="line">    ) &#123;</span><br><span class="line">        Column(</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .fillMaxWidth()</span><br><span class="line">                .padding(padding)</span><br><span class="line">        ) &#123;</span><br><span class="line">            Row(</span><br><span class="line">                verticalAlignment = Alignment.CenterVertically</span><br><span class="line">            ) &#123;</span><br><span class="line">                Text(</span><br><span class="line">                    modifier = Modifier</span><br><span class="line">                        .weight(6f),</span><br><span class="line">                    text = title,</span><br><span class="line">                    fontSize = titleFontSize,</span><br><span class="line">                    fontWeight = titleFontWeight,</span><br><span class="line">                    maxLines = 1,</span><br><span class="line">                    overflow = TextOverflow.Ellipsis</span><br><span class="line">                )</span><br><span class="line">                IconButton(</span><br><span class="line">                    modifier = Modifier</span><br><span class="line">                        .weight(1f)</span><br><span class="line">                        .alpha(ContentAlpha.medium)</span><br><span class="line">                        .rotate(rotationState),</span><br><span class="line">                    onClick = &#123;</span><br><span class="line">                        expandedState = !expandedState</span><br><span class="line">                    &#125;) &#123;</span><br><span class="line">                    Icon(</span><br><span class="line">                        imageVector = Icons.Default.ArrowDropDown,</span><br><span class="line">                        contentDescription = &quot;Drop-Down Arrow&quot;</span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if (expandedState) &#123;</span><br><span class="line">                Text(</span><br><span class="line">                    text = description,</span><br><span class="line">                    fontSize = descriptionFontSize,</span><br><span class="line">                    fontWeight = descriptionFontWeight,</span><br><span class="line">                    maxLines = descriptionMaxLines,</span><br><span class="line">                    overflow = TextOverflow.Ellipsis</span><br><span class="line">                )</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="7">
+<li>text field<br> TextFiled<br> OutlineTextField<br> BasicTextField 适用于定制自定义输入框<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//标题</span><br><span class="line">label()&#123;</span><br><span class="line">    Text(text=&quot;title&quot;)</span><br><span class="line">&#125;</span><br><span class="line">//后面icon</span><br><span class="line">trailingIcon()&#123;</span><br><span class="line">        IconButton()&#123;</span><br><span class="line">            Icon(imageVector=Icons.Filled.Check)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">//前面icon</span><br><span class="line">leadingIcon()&#123;</span><br><span class="line">        IconButton()&#123;</span><br><span class="line">            Icon(imageVector=Icons.Filled.Email)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//键盘</span><br><span class="line">keyboardOption = KeyboardOptions(</span><br><span class="line">    keyboardType=KeyboardType.Email,</span><br><span class="line">    imeAction=ImeAction.Go</span><br><span class="line">)</span><br><span class="line">//键盘事件</span><br><span class="line">keyboardAction=KeyboardAction(</span><br><span class="line">    onSearch = &#123;</span><br><span class="line">        //click done</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="8">
+<li>Surface 容器</li>
+</ol>
+<p>参考： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/404437498">https://zhuanlan.zhihu.com/p/404437498</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">copy from internet</span><br><span class="line">@Composable</span><br><span class="line">fun SurfaceShow() &#123;</span><br><span class="line">    Surface(</span><br><span class="line">        shape = RoundedCornerShape(6.dp),</span><br><span class="line">        border = BorderStroke(0.5.dp, Color.Green),  // 边框</span><br><span class="line">        elevation = 10.dp,  // 高度</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .padding(10.dp),  // 外边距</span><br><span class="line">//        color = Color.Black,  // 背景色</span><br><span class="line">        contentColor = Color.Blue,</span><br><span class="line">    ) &#123;</span><br><span class="line">        Surface(</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .clickable &#123; &#125;  // 点击事件在 padding 前，则此padding为内边距</span><br><span class="line">                .padding(10.dp),</span><br><span class="line">            contentColor = Color.Magenta  // 会覆盖之前 Surface 设置的 contentColor</span><br><span class="line">        ) &#123;</span><br><span class="line">            Text(text = &quot;This is a SurfaceDemo~&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">裁剪，根据 shape 属性描述的形状进行裁剪；</span><br><span class="line">高度，根据 elevation 属性设置容器平面的高度，让人看起来有阴影的效果；</span><br><span class="line">边框，根据 border 属性设置边框的粗细以及色值；</span><br><span class="line">背景，Surface 在 shape 指定的形状上填充颜色。这里会比较复杂一点，如果颜色是 Colors.surface，则会将 LocalElevationOverlay 中设置的 ElevationOverlay 进行叠加，默认情况下只会发生在深色主题中。覆盖的颜色取决于这个 Surface 的高度，以及任何父级 Surface 设置的 LocalAbsoluteElevation。这可以确保一个 Surface 的叠加高度永远不会比它的祖先低，因为它是所有先前 Surface 的高度总和。</span><br><span class="line">内容颜色，根据 contentColor 属性给这个平面的内容指定一个首选色值，这个色值会被文本和图标组件以及点击态作为默认色值使用。当然可以被子节点设置的色值覆盖。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>可以滑动控控件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">fun SimpleList() &#123;</span><br><span class="line">    // 使用 rememberScrollState 保存滚动的位置信息</span><br><span class="line">    val scrollState = rememberScrollState()</span><br><span class="line">    // Modifier.verticalScroll 可添加竖直方向上的滚动属性</span><br><span class="line">    // 使用 Column 的 Modifier.verticalScroll 方法确实可以创建一个可滑动的</span><br><span class="line">    // List，但是这种方法在开始时就会将所有 item 全部加载，类似于 ScrollView</span><br><span class="line">    Column(Modifier.verticalScroll(scrollState)) &#123;</span><br><span class="line">        repeat(100) &#123;</span><br><span class="line">            Text(text = &quot;Item #$it&quot;)</span><br><span class="line">            Divider(color = Color.Blue, thickness = 1.5.dp, startIndent = 10.dp)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="10">
+<li>ConstraintLayout  约束布局</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li><p> ConstraintSet 实现动态适配 横屏和竖屏</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>sign with google button</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">@Composable</span><br><span class="line">fun GoogleButton(</span><br><span class="line">    modifier: Modifier = Modifier,</span><br><span class="line">    text: String = &quot;Sign Up with Google&quot;,</span><br><span class="line">    loadingText: String = &quot;Creating Account...&quot;,</span><br><span class="line">    icon: Int = R.drawable.ic_google_logo,</span><br><span class="line">    shape: Shape = Shapes.medium,</span><br><span class="line">    borderColor: Color = Color.LightGray,</span><br><span class="line">    backgroundColor: Color = MaterialTheme.colors.surface,</span><br><span class="line">    progressIndicatorColor: Color = MaterialTheme.colors.primary,</span><br><span class="line">    onClicked: () -&gt; Unit</span><br><span class="line">) &#123;</span><br><span class="line">    var clicked by remember &#123; mutableStateOf(false) &#125;</span><br><span class="line"></span><br><span class="line">    Surface(</span><br><span class="line">        modifier = modifier.clickable &#123; clicked = !clicked &#125;,</span><br><span class="line">        shape = shape,</span><br><span class="line">        border = BorderStroke(width = 1.dp, color = borderColor),</span><br><span class="line">        color = backgroundColor</span><br><span class="line">    ) &#123;</span><br><span class="line">        Row(</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .padding(</span><br><span class="line">                    start = 12.dp,</span><br><span class="line">                    end = 16.dp,</span><br><span class="line">                    top = 12.dp,</span><br><span class="line">                    bottom = 12.dp</span><br><span class="line">                )</span><br><span class="line">                .animateContentSize(</span><br><span class="line">                    animationSpec = tween(</span><br><span class="line">                        durationMillis = 300,</span><br><span class="line">                        easing = LinearOutSlowInEasing</span><br><span class="line">                    )</span><br><span class="line">                ),</span><br><span class="line">            verticalAlignment = Alignment.CenterVertically,</span><br><span class="line">            horizontalArrangement = Arrangement.Center</span><br><span class="line">        ) &#123;</span><br><span class="line">            Icon(</span><br><span class="line">                painter = painterResource(id = icon),</span><br><span class="line">                contentDescription = &quot;Google Button&quot;,</span><br><span class="line">                tint = Color.Unspecified</span><br><span class="line">            )</span><br><span class="line">            Spacer(modifier = Modifier.width(8.dp))</span><br><span class="line">            Text(text = if (clicked) loadingText else text)</span><br><span class="line">            if (clicked) &#123;</span><br><span class="line">                Spacer(modifier = Modifier.width(16.dp))</span><br><span class="line">                CircularProgressIndicator(</span><br><span class="line">                    modifier = Modifier</span><br><span class="line">                        .height(16.dp)</span><br><span class="line">                        .width(16.dp),</span><br><span class="line">                    strokeWidth = 2.dp,</span><br><span class="line">                    color = progressIndicatorColor</span><br><span class="line">                )</span><br><span class="line">                onClicked()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="13">
+<li>coil image<br>异步版本 AsyncImage<br><a target="_blank" rel="noopener" href="https://coil-kt.github.io/coil/compose/">https://coil-kt.github.io/coil/compose/</a></li>
+</ol>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">fun coilImage()&#123;</span><br><span class="line">Box(modifier=Modifier.height(200.dp).width(200.dp))&#123;</span><br><span class="line">  val painter =rememberImagePainter(</span><br><span class="line">    data=&quot;http://example.com/image.png&quot;,</span><br><span class="line">    builder=&#123;</span><br><span class="line">        placehoder(R.drwable.ic_placeholder),</span><br><span class="line">        error(R.drwable.error),</span><br><span class="line">        crossfade(2000),</span><br><span class="line">        transformations(</span><br><span class="line">            GrayscaleTransformation(),</span><br><span class="line">            //CircleCropTransformation(),</span><br><span class="line">            BlurTransformation(LocalContext.current),</span><br><span class="line">            RoundCornersTransformation(48.dp)</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">val painterState=painter.state</span><br><span class="line">Image(painter=painter,contentDescription=&quot;image&quot;)</span><br><span class="line">   if(painterState is ImagePainter.State.Loading)&#123;</span><br><span class="line">        CircularProgressIndicator()</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="14">
+<li>密码输入框<br>rememberSaveable <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">@Composable</span><br><span class="line">fun Password()&#123;</span><br><span class="line">    Column()&#123;</span><br><span class="line">        val password by rememberSaveable(mutableStateOf(&quot;&quot;))</span><br><span class="line">        val passwordVisibility by remember(mutableStateOf(false))</span><br><span class="line">        val icon = if (passwordVisibility) painterResourcer(R.drawable.visibility) else painterResourcer(R.drawable.unvisibility)</span><br><span class="line"></span><br><span class="line">        OutlinedTextField(</span><br><span class="line">            val = password,</span><br><span class="line">            onValueChange = &#123;</span><br><span class="line">                password=it</span><br><span class="line">            &#125;,</span><br><span class="line">            placeholder=&#123;Text(text=&quot;Password&quot;)&#125;,</span><br><span class="line">            label = &#123; Text(text=&quot;Password1&quot;)&#125;,</span><br><span class="line">            trailingIcon = &#123;</span><br><span class="line">                IconButton(onclick&#123;</span><br><span class="line">                        passwordVisibility=！passwordVisibility</span><br><span class="line">                &#125;)&#123;</span><br><span class="line">                    Icon（</span><br><span class="line">                    painter=icon,</span><br><span class="line">                    contentDescription=&quot;visibility icon&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            keyboardOptions = KeyboardOptions(</span><br><span class="line">                keyboardType =KeyboardOptions.Password</span><br><span class="line">            )</span><br><span class="line">            visualTransformation = if (passwordVisibility) visualTransformation.None else passwordVisualTransformation()</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="15">
+<li>GradientButton 渐变按钮<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    @Composable</span><br><span class="line">fun GradientButton(</span><br><span class="line">    text: String,</span><br><span class="line">    textColor: Color,</span><br><span class="line">    gradient: Brush,</span><br><span class="line">    onClick: () -&gt; Unit</span><br><span class="line">) &#123;</span><br><span class="line">    Button(</span><br><span class="line">        colors = ButtonDefaults.buttonColors(</span><br><span class="line">            backgroundColor = Color.Transparent</span><br><span class="line">        ),</span><br><span class="line">        contentPadding = PaddingValues(), //去除padding</span><br><span class="line">        onClick = &#123; onClick() &#125;)</span><br><span class="line">    &#123;</span><br><span class="line">        Box(</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .background(gradient)</span><br><span class="line">                .padding(horizontal = 16.dp, vertical = 8.dp),</span><br><span class="line">            contentAlignment = Alignment.Center</span><br><span class="line">        ) &#123;</span><br><span class="line">            Text(text = text, color = textColor)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>取色<br><a target="_blank" rel="noopener" href="https://uigradients.com/#CoolBlues">https://uigradients.com/#CoolBlues</a></p>
+<pre><code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fun preview()&#123;</span><br><span class="line">    GradientButton(</span><br><span class="line">        text=“Button”,</span><br><span class="line">        textColor=Color.white,</span><br><span class="line">        gradient=Brush.horizontalGradient(</span><br><span class="line">            colors = listOf(</span><br><span class="line">                color1,color2</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+
+  <p><a class="classtest-link" href="/tags/compose/" rel="tag">compose</a> — Mar 31, 2023</p>
+  
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://jiliapp.github.io" target="_blank" rel="noreferrer">jiliapp</a>.</p>
+        
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/jiliapp" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
