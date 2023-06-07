@@ -15,7 +15,7 @@
   
   <link rel="canonical" href="http://jiliapp.github.io/2023/06/02/pstgresql/">
   
-  <meta name="description" content="安装服务1234567891011# Install the repository RPM:sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-">
+  <meta name="description" content="*** 所有postgresql-15调整为postgresql-14,因为navivat/flyway不支持高版本 ***   安装服务1234567891011# Install the repository RPM:sudo yum install -y https://download.po">
   
   
   <meta name="keywords" content="激励">
@@ -28,14 +28,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="pstgresql centos安装" />
   
-  <meta property="og:description" content="安装服务1234567891011# Install the repository RPM:sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-">
+  <meta property="og:description" content="*** 所有postgresql-15调整为postgresql-14,因为navivat/flyway不支持高版本 ***   安装服务1234567891011# Install the repository RPM:sudo yum install -y https://download.po">
   
   <meta property="og:url" content="http://jiliapp.github.io/2023/06/02/pstgresql/" />
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="pstgresql centos安装">
   
-  <meta name="twitter:description" content="安装服务1234567891011# Install the repository RPM:sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-">
+  <meta name="twitter:description" content="*** 所有postgresql-15调整为postgresql-14,因为navivat/flyway不支持高版本 ***   安装服务1234567891011# Install the repository RPM:sudo yum install -y https://download.po">
   
   
   
@@ -207,7 +207,8 @@
         <div class="trans">
             <h2>pstgresql centos安装</h2>
 
-  <ol>
+  <p>*** 所有postgresql-15调整为postgresql-14,因为navivat/flyway不支持高版本 ***</p>
+<ol>
 <li> 安装服务<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Install the repository RPM:</span><br><span class="line">sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</span><br><span class="line"></span><br><span class="line"># Install PostgreSQL:</span><br><span class="line">sudo yum install -y postgresql15-server</span><br><span class="line"></span><br><span class="line"># Optionally initialize the database and enable automatic start:</span><br><span class="line">sudo /usr/pgsql-15/bin/postgresql-15-setup initdb</span><br><span class="line">sudo systemctl enable postgresql-15</span><br><span class="line">sudo systemctl start postgresql-15</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li> 设置用户密码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo passwd postgres</span><br><span class="line">设置密码为:  NewPassword</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">su - postgres  </span><br><span class="line">登陆数据库</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">psql -d template1 -c &quot;ALTER USER postgres WITH PASSWORD &#x27;NewPassword&#x27;;&quot; </span><br><span class="line">设置数据库密码</span><br><span class="line"></span><br><span class="line"> psql postgres</span><br><span class="line"> 登陆使用</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ol>
