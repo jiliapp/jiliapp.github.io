@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>caddy 阿里云/腾讯云https签发</title>
+  
+  <link rel="canonical" href="http://jiliapp.github.io/2023/07/13/caddy/">
+  
+  <meta name="description" content="Caddyfile 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747">
+  
+  
+  <meta name="keywords" content="激励">
+  
+  <meta name="author" content="bangbang">
+  
+  
+  
+  <meta property="og:site_name" content="帮帮技术站" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="caddy 阿里云/腾讯云https签发" />
+  
+  <meta property="og:description" content="Caddyfile 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747">
+  
+  <meta property="og:url" content="http://jiliapp.github.io/2023/07/13/caddy/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="caddy 阿里云/腾讯云https签发">
+  
+  <meta name="twitter:description" content="Caddyfile 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747">
+  
+  
+  
+  
+  <meta name="twitter:url" content="http://jiliapp.github.io/2023/07/13/caddy/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      帮帮技术站
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/product" class="ml">Product</a>
+          
+        
+          
+          <a href="/archives" class="ml">Archives</a>
+          
+        
+          
+          <a href="/tags" class="ml">Tags</a>
+          
+        
+          
+          <a href="/about" class="ml">About</a>
+          
+        
+        
+          
+            <a href="mailto:jiliapp@xgggh.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>caddy 阿里云/腾讯云https签发</h2>
+
+  <p>Caddyfile</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"># build</span><br><span class="line"># xcaddy build  master --output caddy --with  github.com/caddy-dns/alidns --with github.com/greenpau/caddy-security  </span><br><span class="line"># root: setcap cap_net_bind_service=+ep /home/deployer/caddy/caddy</span><br><span class="line"></span><br><span class="line"># 全局设置</span><br><span class="line"># https://caddy2.dengxiaolong.com/docs/caddyfile/options</span><br><span class="line">&#123;</span><br><span class="line">	#debug</span><br><span class="line">	http_port 80</span><br><span class="line">	https_port 443</span><br><span class="line">	grace_period 30s</span><br><span class="line">	#auto_https disable_redirects # auto_https off|disable_redirects|ignore_loaded_certs|disable_certs</span><br><span class="line">	email chengdukm@gmail.com</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 日志</span><br><span class="line"></span><br><span class="line">(log) &#123;</span><br><span class="line">	log &#123;</span><br><span class="line">		output file logs/&#123;args[0]&#125;_access.log &#123;</span><br><span class="line">			roll_size 100MiB</span><br><span class="line">			roll_local_time</span><br><span class="line">			roll_keep 10</span><br><span class="line">			roll_keep_for 2400h</span><br><span class="line">			roll_compressed</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 缓存</span><br><span class="line">(cache) &#123;</span><br><span class="line">	@assets &#123;</span><br><span class="line">		path *.bmp *.jpg *.png *.svg *.gif *.pdf *.css *.js</span><br><span class="line">	&#125;</span><br><span class="line">	@content &#123;</span><br><span class="line">		not &#123;</span><br><span class="line">			path *.bmp *.jpg *.png *.svg *.gif *.pdf *.css *.js</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	header @assets cache-control max-age=31536000</span><br><span class="line">	header @content cache-control max-age=0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#tls</span><br><span class="line">(tls) &#123;</span><br><span class="line">	tls &#123;</span><br><span class="line">		dns alidns &#123;</span><br><span class="line">			access_key_id &#123;env.ALIYUN_ACCESS_KEY_ID&#125;</span><br><span class="line">			access_key_secret &#123;env.ALIYUN_ACCESS_KEY_SECRET&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		on_demand</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 安全</span><br><span class="line"></span><br><span class="line">api.jiliapp.cn &#123;</span><br><span class="line">	import log api.jiliapp.cn</span><br><span class="line">	import cache</span><br><span class="line">	import tls</span><br><span class="line">	# authenticate with myportal</span><br><span class="line"></span><br><span class="line">	reverse_proxy /* &#123;</span><br><span class="line">		to 127.0.0.1:2020 # 127.0.0.1:2021 127.0.0.1:2022</span><br><span class="line">		lb_policy random # first random least_conn ip_hash random_choose  header uri_hash round_robin cookie </span><br><span class="line">		lb_try_duration 10s</span><br><span class="line">		lb_try_interval 5s</span><br><span class="line"></span><br><span class="line">		header_up Host &#123;upstream_hostport&#125;</span><br><span class="line">		header_up X-Real-IP &#123;http.request.header.X-Forwarded-For&#125;</span><br><span class="line">		# 这里取header里面的值 发送 X-Real-IP</span><br><span class="line">		#  header_up X-Forwarded-For &#123;http.request.remote&#125;</span><br><span class="line">		header_up X-Forwarded-Port &#123;http.request.port&#125;</span><br><span class="line">		#  header_up X-Forwarded-Proto &#123;http.request.scheme&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http://oauth2.abc.cn &#123;</span><br><span class="line">	import log oauth2.abc.cn</span><br><span class="line">	import cache</span><br><span class="line">	# import tls</span><br><span class="line">	# authenticate with myportal</span><br><span class="line"></span><br><span class="line">	reverse_proxy /* &#123;</span><br><span class="line">		to 127.0.0.1:8080 # 127.0.0.1:2021 127.0.0.1:2022</span><br><span class="line">		lb_policy random # first random least_conn ip_hash random_choose  header uri_hash round_robin cookie </span><br><span class="line">		lb_try_duration 12s</span><br><span class="line">		lb_try_interval 4s</span><br><span class="line"></span><br><span class="line">		header_up Host &#123;upstream_hostport&#125;</span><br><span class="line">		header_up X-Real-IP &#123;http.request.header.X-Forwarded-For&#125;</span><br><span class="line">		# 这里取header里面的值 发送 X-Real-IP</span><br><span class="line">		#  header_up X-Forwarded-For &#123;http.request.remote&#125;</span><br><span class="line">		header_up X-Forwarded-Port &#123;http.request.port&#125;</span><br><span class="line">		#  header_up X-Forwarded-Proto &#123;http.request.scheme&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">consul.abc.cn &#123;</span><br><span class="line">	import log consul.abc.cn</span><br><span class="line">	import cache</span><br><span class="line">	import tls</span><br><span class="line"></span><br><span class="line">	reverse_proxy /* &#123;</span><br><span class="line">		to 127.0.0.1:8500 # 127.0.0.1:2021 127.0.0.1:2022</span><br><span class="line">		lb_policy random # first random least_conn ip_hash random_choose  header uri_hash round_robin cookie </span><br><span class="line">		lb_try_duration 12s</span><br><span class="line">		lb_try_interval 4s</span><br><span class="line"></span><br><span class="line">		header_up Host &#123;upstream_hostport&#125;</span><br><span class="line">		header_up X-Real-IP &#123;http.request.header.X-Forwarded-For&#125;</span><br><span class="line">		# 这里取header里面的值 发送 X-Real-IP</span><br><span class="line">		#  header_up X-Forwarded-For &#123;http.request.remote&#125;</span><br><span class="line">		header_up X-Forwarded-Port &#123;http.request.port&#125;</span><br><span class="line">		#  header_up X-Forwarded-Proto &#123;http.request.scheme&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>windows环境变量设置:</p>
+<ol>
+<li>阿里云</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> xcaddy build  master --output caddy --with  github.com/caddy-dns/alidns --with github.com/greenpau/caddy-security  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(tls) &#123;</span><br><span class="line">	tls &#123;</span><br><span class="line">		dns alidns &#123;</span><br><span class="line">			access_key_id &#123;env.ALIYUN_ACCESS_KEY_ID&#125;</span><br><span class="line">			access_key_secret &#123;env.ALIYUN_ACCESS_KEY_SECRET&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		on_demand</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># https://www.aliyun.com/</span><br><span class="line"># 重启生效</span><br><span class="line">#  [environment]::SetEnvironmentvariable(&quot;ALIYUN_ACCESS_KEY_ID&quot;, &quot;LTAI5tDc21111111111111111&quot;, &quot;User&quot;)</span><br><span class="line">#  [environment]::SetEnvironmentvariable(&quot;ALIYUN_ACCESS_KEY_SECRET&quot;, &quot;S3Daw8Bxn2222222222222222&quot;, &quot;User&quot;)</span><br><span class="line"># echo $env:ALIYUN_ACCESS_KEY_SECRET</span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li>腾讯云</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">xcaddy build  master --output caddy --with  github.com/caddy-dns/tencentcloud --with github.com/greenpau/caddy-security</span><br><span class="line"></span><br><span class="line">(tls) &#123;</span><br><span class="line">	tls &#123;</span><br><span class="line">		dns tencentcloud &#123;</span><br><span class="line">			secret_id &#123;env.TENCENTCLOUD_SECRET_ID&#125;</span><br><span class="line">			secret_key &#123;env.TENCENTCLOUD_SECRET_KEY&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		on_demand</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># https://console.dnspod.cn/account/token/apikey </span><br><span class="line"># 重启生效</span><br><span class="line"># [environment]::SetEnvironmentvariable(&quot;TENCENTCLOUD_SECRET_ID&quot;, &quot;AKIDELH1Zt1yiEXdWBgw1111111111111111111I&quot;, &quot;User&quot;)</span><br><span class="line"># [environment]::SetEnvironmentvariable(&quot;TENCENTCLOUD_SECRET_KEY&quot;, &quot;qTr1zmMispY3MYDm22222222222222222222h&quot;, &quot;User&quot;)</span><br><span class="line"></span><br><span class="line"># echo $env:TENCENTCLOUD_SECRET_ID</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>godaddy<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   xcaddy build  master --output caddy --with  github.com/caddy-dns/godaddy --with github.com/greenpau/caddy-security  </span><br><span class="line"></span><br><span class="line">    (tls) &#123;</span><br><span class="line">        tls &#123;</span><br><span class="line">            dns godaddy &#123;env.GODADDY_TOKEN&#125;</span><br><span class="line">            on_demand</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"># 重启生效(主语环境变量中间的 `:` )</span><br><span class="line"># [environment]::SetEnvironmentvariable(&quot;GODADDY_TOKEN&quot;, &quot;gHVQQbNTMix11111111111111111:Rb2222222222222222222&quot;, &quot;User&quot;)</span><br><span class="line"># echo $env:ALIYUN_ACCESS_KEY_SECRET</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>**** 注意 ****</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. xcaddy需要设置代理：</span><br><span class="line"> export GOPROXY=https://proxy.golang.com.cn,direct </span><br><span class="line">2. 运行xcaddy还需要git/golang</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+  <p><a class="classtest-link" href="/tags/caddy/" rel="tag">caddy</a> — Jul 13, 2023</p>
+  
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://jiliapp.github.io" target="_blank" rel="noreferrer">jiliapp</a>.&nbsp;&nbsp;&nbsp;&nbsp;
+        <a id ="beian" href="https://beian.miit.gov.cn/#/Integrated/recordQuery" target="_blank" rel="noreferrer">蜀ICP备2023017116号-1</a>
+      </p>
+        
+        
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/jiliapp" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+<script>
+  var domain = window.location.host;
+  if(domain.indexOf("bbbang.ltd") != -1 ){
+    //操作标签
+    document.getElementById("beian").style.visibility="visible";
+  }else{
+    document.getElementById("beian").style.visibility="hidden";
+  }
+ </script>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
