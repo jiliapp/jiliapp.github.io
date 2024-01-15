@@ -11,11 +11,11 @@
   <meta charset="utf-8">
 
   
-  <title>All Posts - bangbang</title>
+  <title>acme.sh  自动签发ssl</title>
   
-  <link rel="canonical" href="http://jiliapp.github.io/archives/page/3/">
+  <link rel="canonical" href="http://jiliapp.github.io/2024/01/15/acme/">
   
-  <meta name="description" content="在线帮帮忙">
+  <meta name="description" content="godaddy自动签发1234567891011121314151617acme.sh方式生成证书(ROOT运行)https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8Ecurl https://get.acme.sh | ">
   
   
   <meta name="keywords" content="激励">
@@ -23,28 +23,24 @@
   <meta name="author" content="bangbang">
   
   
-  <meta property="og:image" content="http://jiliapp.github.io/images/thumbnail.jpg">
-  
   
   <meta property="og:site_name" content="帮帮技术站" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="All Posts - bangbang" />
+  <meta property="og:title" content="acme.sh  自动签发ssl" />
   
-  <meta property="og:description" content="在线帮帮忙">
+  <meta property="og:description" content="godaddy自动签发1234567891011121314151617acme.sh方式生成证书(ROOT运行)https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8Ecurl https://get.acme.sh | ">
   
-  <meta property="og:url" content="http://jiliapp.github.io/archives/page/3/" />
+  <meta property="og:url" content="http://jiliapp.github.io/2024/01/15/acme/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="All Posts - bangbang">
+  <meta name="twitter:title" content="acme.sh  自动签发ssl">
   
-  <meta name="twitter:description" content="在线帮帮忙">
-  
-  
-  
-  <meta name="twitter:image" content="http://jiliapp.github.io/images/thumbnail.jpg">
+  <meta name="twitter:description" content="godaddy自动签发1234567891011121314151617acme.sh方式生成证书(ROOT运行)https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8Ecurl https://get.acme.sh | ">
   
   
-  <meta name="twitter:url" content="http://jiliapp.github.io/archives/page/3/" />
+  
+  
+  <meta name="twitter:url" content="http://jiliapp.github.io/2024/01/15/acme/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -209,196 +205,19 @@
 </div>
 
         <div class="trans">
-          
-<h2>All Posts</h2>
+            <h2>acme.sh  自动签发ssl</h2>
+
+  <ol>
+<li>godaddy自动签发<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">acme.sh方式生成证书</span><br><span class="line"></span><br><span class="line">(ROOT运行)</span><br><span class="line"></span><br><span class="line">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</span><br><span class="line"></span><br><span class="line">curl https://get.acme.sh | sh -s email=chengdukm@gmail.com</span><br><span class="line"></span><br><span class="line">~/.acme.sh/acme.sh --uninstall rm -rf ~/.acme.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export GD_Key=&quot;1111111&quot; export GD_Secret=&quot;222222&quot;</span><br><span class="line"></span><br><span class="line">&lt;回调的时候，证书签名必须和域名一样&gt; acme.sh --issue --dns dns_gd -d test.com -d *.test.com acme.sh --issue --dns dns_gd -d *.test.com</span><br><span class="line"></span><br><span class="line">~/.acme.sh/acme.sh --install-cert -d *.test.com --ecc --key-file /usr/local/openresty/nginx/conf/certs/test.com_key.pem --fullchain-file /usr/local/openresty/nginx/conf/certs/test.com_fullchain.pem</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="2">
+<li>腾讯云签发</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">参见：</span><br><span class="line">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</span><br><span class="line"></span><br><span class="line">2023年更新-支出腾讯云解析DNS添加</span><br><span class="line"></span><br><span class="line">https://r2wind.cn/articles/20230914.html</span><br><span class="line"></span><br><span class="line">ROOT用户执行：</span><br><span class="line"></span><br><span class="line">curl https://get.acme.sh | sh -s email=chengdukm@gmail.com</span><br><span class="line"></span><br><span class="line">大陆用户：</span><br><span class="line">git clone https://gitee.com/neilpang/acme.sh.git</span><br><span class="line">cd acme.sh</span><br><span class="line">./acme.sh --install -m chengdukm@gmail.com</span><br><span class="line"></span><br><span class="line">升级</span><br><span class="line"> ~/.acme.sh/acme.sh --upgrade</span><br><span class="line">卸载</span><br><span class="line"> ~/.acme.sh/acme.sh --uninstall</span><br><span class="line"> </span><br><span class="line">**** 注意 腾讯云和DNSPOD不一样 ****</span><br><span class="line">export Tencent_SecretId=&quot;AKIDELH1Zt1yi12121212&quot;</span><br><span class="line">export Tencent_SecretKey=&quot;qTr1zmMispY3M23233232323&quot;</span><br><span class="line"></span><br><span class="line">~/.acme.sh/acme.sh --issue --dns dns_tencent -d bbb.ltd -d *.bbb.ltd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mkdir  /usr/local/openresty/ssl</span><br><span class="line">复制并加载openresty(ROOT)</span><br><span class="line"></span><br><span class="line">~/.acme.sh/acme.sh --install-cert -d bbb.ltd  --key-file  /usr/local/openresty/ssl/bbb.ltd.key.pem   --fullchain-file  /usr/local/openresty/ssl/bbb.ltd.fullchain.pem  --reloadcmd     &quot;systemctl reload openresty&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 23, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/23/read-book-link/" class="">
-            
-              阅读文章
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 11, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/11/youtube-download/" class="">
-            
-              youtube视频下载
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 11, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/11/wechat-8.0-debug/" class="">
-            
-              微信8.0后xweb内核调试网页
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 11, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/11/keycloak-endpoint/" class="">
-            
-              keycloak-openid-configuration开放端点
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 11, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/11/keycloak19-2/" class="">
-            
-              keycloak19使用2-Keycloak19添加用户自定义属性到token
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 11, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/11/keycloak19-1/" class="">
-            
-              keycloak19使用1_api创建用户
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 11, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/11/keycloak18-4/" class="">
-            
-              keycloak18使用4-通过keycloak-admin-client客户端创建用户
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 11, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/11/keycloak18-3/" class="">
-            
-              keycloak18使用3 Linux平台部署keycloak
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 11, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/11/keycloak18-2/" class="">
-            
-              keyclock18使用2_配置基础使用
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 11, 2022</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2022/10/11/keycloak18-1/" class="">
-            
-              keyclock18使用1_下载和启动
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-<div class="pagination-bar">
-  <ul class="pagination">
-    
-
-    <a class="mr" href="/archives/page/2/">
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-      </svg>
-      <span>Recent</span>
-    </a>
-
-    
-    
-
-    <a class="" href="/archives/page/4/">
-      <span>Older</span>
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z" />
-      </svg>
-    </a>
-
-    
-  </ul>
-</div>
+  <p> — Jan 15, 2024</p>
+  
 
 
         </div>

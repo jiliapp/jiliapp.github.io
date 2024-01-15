@@ -15,7 +15,7 @@
   
   <link rel="canonical" href="http://jiliapp.github.io/2023/09/03/tg-webhook-newchat-member/">
   
-  <meta name="description" content="在线帮帮忙">
+  <meta name="description" content="setwebhook接口查验是否设置成功12345https://api.telegram.org/botp&amp;#123;my_bot_token&amp;#125;/getMehttps://api.telegram.org/bot&amp;#123;my_bot_token&amp;#125;/getWebhookInf">
   
   
   <meta name="keywords" content="激励">
@@ -28,14 +28,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="tg群组个人邀请个人-邀请链接问题" />
   
-  <meta property="og:description" content="在线帮帮忙">
+  <meta property="og:description" content="setwebhook接口查验是否设置成功12345https://api.telegram.org/botp&amp;#123;my_bot_token&amp;#125;/getMehttps://api.telegram.org/bot&amp;#123;my_bot_token&amp;#125;/getWebhookInf">
   
   <meta property="og:url" content="http://jiliapp.github.io/2023/09/03/tg-webhook-newchat-member/" />
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="tg群组个人邀请个人-邀请链接问题">
   
-  <meta name="twitter:description" content="在线帮帮忙">
+  <meta name="twitter:description" content="setwebhook接口查验是否设置成功12345https://api.telegram.org/botp&amp;#123;my_bot_token&amp;#125;/getMehttps://api.telegram.org/bot&amp;#123;my_bot_token&amp;#125;/getWebhookInf">
   
   
   
@@ -207,7 +207,29 @@
         <div class="trans">
             <h2>tg群组个人邀请个人-邀请链接问题</h2>
 
-  
+  <ol>
+<li>setwebhook接口查验是否设置成功<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://api.telegram.org/botp&#123;my_bot_token&#125;/getMe</span><br><span class="line">https://api.telegram.org/bot&#123;my_bot_token&#125;/getWebhookInfo</span><br><span class="line"></span><br><span class="line">my_bot_token = 111:23233</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>消息CHAT_MEMBER设置为接收</li>
+</ol>
+<pre><code>    @Bean
+    @Singleton
+    fun defaultBotOptions( env: Environment): DefaultBotOptions &#123;
+        val defaultBotOptions=if (env.activeNames.contains(&quot;prod&quot;)) DefaultBotOptions() else DefaultBotOptions().apply &#123;
+            this.proxyHost=&quot;127.0.0.1&quot;
+            this.proxyPort=33210
+            this.proxyType= DefaultBotOptions.ProxyType.HTTP
+        &#125;
+        //允许消息更新
+        val allowedUpdates=listOf(AllowedUpdatesType.CHAT_MEMBER.code
+            ,AllowedUpdatesType.MESSAGE.code
+            , AllowedUpdatesType.EDITED_MESSAGE.code
+            ,AllowedUpdatesType.CALLBACK_QUERY.code
+        )
+        defaultBotOptions.allowedUpdates=allowedUpdates
+        return defaultBotOptions
+    &#125;
+</code></pre>
+
   <p> — Sep 3, 2023</p>
   
 
